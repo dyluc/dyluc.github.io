@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Decoding JPEGs in Java"
+repo: "https://github.com/dyluc/jpegdecoder"
 author:
 - Dylan Walsh
 ---

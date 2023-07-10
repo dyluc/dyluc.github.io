@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Rover Images"
+repo: "https://github.com/dyluc/roverimages"
+author:
+- Dylan Walsh
+---
+
 Today's post will cover one of [NASA's Open APIs](https://api.nasa.gov) used to retrieve Mars rover images. I'd recommend checking this list out. You can find all sorts of APIs there, from accessing NASA's Exoplanet Archive Database to getting photos from Earth's Polychromatic Imaging Camera(pretty epic I know). If ever you find yourself wondering what the weather is like on Mars, well, there is an API for that too.
 
 Before getting started, you'll need an API key. You can get one at the link above, just scroll down to the Generate API Key section to sign up.
