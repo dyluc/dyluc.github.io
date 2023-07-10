@@ -13,7 +13,7 @@ This was one of my larger projects, which involved building the chess engine fir
 - [Building a Chess AI](/assets/chess-ai/project.pdf)
 - [Source Code](https://github.com/dyluc/chessai)
 
-![uml](/assets/chess-ai/uml.png)
+![uml](/assets/chess-ai/uml.jpeg)
 
 For this post, however, I'll only be going through the algorithms I used to determine best moves. So, without further ado, let's learn about Minimax.
 
