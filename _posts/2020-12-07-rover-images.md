@@ -2,6 +2,7 @@
 layout: post
 title: "Rover Images"
 repo: "https://github.com/dyluc/roverimages"
+comments: false
 author:
 - Dylan Walsh
 ---

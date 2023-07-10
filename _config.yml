@@ -5,6 +5,9 @@ author:
   name: Dylan Walsh
   email: dylanlucas1510@gmail.com
 github_username: dyluc
+url: https://dyluc.github.io
+disqus:
+  shortname: dyluc-github-io
 minima:
   social_links:
     - { platform: github, user_url: "https://github.com/dyluc" }

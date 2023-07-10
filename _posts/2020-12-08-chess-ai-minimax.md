@@ -2,6 +2,7 @@
 layout: post
 title: "Chess AI Minimax"
 repo: "https://github.com/dyluc/chessai"
+comments: false
 author:
 - Dylan Walsh
 ---
