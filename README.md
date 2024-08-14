@@ -1,3 +1,3 @@
-Hey, I'm Dylan. I write tech posts and articles on various topics. I'm currently between migrating content from my old site to this one. Coming up I'll be focusing on covering Machine Learning topics, starting with the basics; Linear and Logistic regression, so look out for that. 
+Hi, I'm Dylan. I write tech articles and posts on a variety of topics. Unfortunately, some content was lost during the migration from my previous site. I've been busy lately, but I plan to return to writing soon.
 
-In the meantime, if you'd like to reach out, my social links are in the page footer.
+In the meantime, if you want to connect, you'll find my social links in the footer.
