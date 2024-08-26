@@ -7,7 +7,7 @@ author:
 - Dylan Walsh
 ---
 
-JPEG; the most widely used compression method for digital images. Assuming you've been on the internet for more than 5 minutes, you have most definitely seen or heard of the .jpg file extension. If not, well, congratulations, you get to learn about the existence of JPEG images directly from me. First and foremost, JPEG isn't a file format, it's a long and hefty specification of how to reduce image file sizes; a compression method. Part of the idea behind the lossy aspect of JPEG compression is based on our poor ability to distinguish slight differences in colour. Turns out, we can't see colour very well at all, so we can throw away some of that colour information in the image that we cannot dissern as well (more on this later). Perhaps the most significant part of the JPEG specification however, is the discrete cosine transform(DCT), which represents our image data as a sum of cosine functions of various frequencies. Yes this sounds scary and complicated but don't worry, by the end of this article, you'll understand how it works.
+JPEG; the most widely used compression method for digital images. Assuming you've been on the internet for more than 5 minutes, you have most definitely seen or heard of the .jpg file extension. Firstly, JPEG isn't a file format, it's a long and hefty specification of how to reduce image file sizes; a compression method. Part of the idea behind the lossy aspect of JPEG compression is based on our poor ability to distinguish slight differences in colour. Turns out, we can't see colour very well at all, so we can throw away some of that colour information in the image (more on this later). Perhaps the most significant part of the JPEG specification however, is the discrete cosine transform (DCT), which represents our image data as a sum of cosine functions of various frequencies. Yes this sounds scary and complicated but don't worry, by the end of this article, you'll understand how it works.
 
 Now, before we jump into anything, I would highly suggest giving these videos by Computerphile a watch. They give an overview of the steps involved in encoding JPEG images.
 
@@ -108,18 +108,14 @@ void decode(String image) throws IOException {
 
 This will be the entry point for the decoder. The start of the decode method reads all the image data into an array of unsigned bytes. Some values are then initialised that we will be using in later segments. We can start by simply looping over the bytes in this newly constructed array, checking for an 0xFF byte which would mark the start of a new segment. From there we can identify each marker by reading the following byte, and in turn deal with that segment accordingly. Due to how a JPEG is structured, by the time we reach the 0xFFDA Start of Scan marker (which contains the actual image data), we would have already read all other segments we need to begin decoding the scan data. You may notice that in most of the case blocks, there is a length variable as well as a call to copyOfRange(). The two bytes immedietly following most markers will signify the length of that segment. Not all markers have this length defined, but most will. The call to copyOfRange() constructs an array from the remaining bytes of that segment. This copied chunk of data is the main payload of that particular segment, and each will be used to extract the relevant information for decoding. This is by no means the most efficient way to unpack bytes of a JPEG, but it is a start.
 
-So far that's alot of information I've thrown at you, and I don't mind if reading all that made you a little sleepy. But by understanding the structure of a JPEG image, the problem just becomes figuring out what data each segment contains, and how to use it to decode the image. We'll go through each segment one by one. It will be a long journey, but rest assured by the time we're done, we'll have a program that can turn an image into another image that looks exactly the same!
-
-...
-
-Yeah, not exactly the coolest project. But whatever, you don't have to read this!
+So far that's alot of information I've thrown at you. But by understanding the structure of a JPEG image, the problem just becomes figuring out what data each segment contains, and how to use it to decode the image. We'll go through each segment one by one.
 
 Before that though, I'd just like to take a minute to explain a few concepts that you will need to understand about JPEG images before we go on. It may be a helpful to refer back to this section throughout the remainder of this post.
 
 ### Colour Space Conversion, YCbCr.
 The very first step in the encoding process is to convert the RGB pixel values that make up the image into the YCbCr colour space. Made up of three components. Y represents the luminance, or brightness of the pixel. Greyscale JPEG images will be entirely comprised of just this brightness information. Cb and Cr make up the chrominance, or colour, part of this trio. They describe the chroma blue and chroma red values for a pixel. Converting images to YCbCr first,  allows the brightness and colour of an image to be dealt with seperately. This is helpful because brightness information is more important to us in the overall perceptual quality of an image than colour information is. By seperating these components into different channels, greater compression can be applied to the colour data, and less so to the brightness data.
 
-Smart huh? So much thought and enginuity contained inside the images we see every day. Think about all the JPEG images on the internet! On Wikipedia, there is a paragraph that mentions several billion JPEG images are produced on a daily basis as of 2015. Sounds like BS to me but what do I know. 
+Smart huh? So much thought and enginuity contained inside the images we see every day. Think about all the JPEG images on the internet! On Wikipedia, there is a paragraph that mentions several billion JPEG images are produced on a daily basis as of 2015!
 
 Anyway, with this knowledge, we can now tackle the concept of chroma subsampling.
 
@@ -130,7 +126,7 @@ In order to take advantage of the limitations we have when seeing colours, JPEG 
 + **2x1 (4:2:2)** - The chrominance components are sampled with half the horizontal resolution in relation to the luminance component. This is the most common type of subsampling you'll see with digital cameras.
 + **2x2 (4:2:0)** - The chrominance components are sampled with half both the horizontal, and veritcal resolution in relation to the luminance component. This preserves only a quarter of the original colour information.
 
-This may be easier to see with the following graphic that I may or may not have stolen (and modified a little) straight from Wikipedia ¯\_(ツ)_/¯ :
+This may be easier to see with the following graphic that I may or may not have stolen (and modified a little) straight from Wikipedia ¯\\_(ツ)_/¯ :
 
 ![chromasubsampling](/assets/decoding-jpegs/chromasubsampling.png)
 
