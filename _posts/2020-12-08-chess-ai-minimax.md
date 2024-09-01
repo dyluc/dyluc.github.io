@@ -9,7 +9,7 @@ author:
 
 Today's post is all about the Minimax algorithm, and more specifically, using it to build a chess AI. This was an older project of mine, and having just created this blog, I thought it might be a good idea to go through how you might go about starting to design a chess AI to play against. 
 
-This was one of my larger projects, which involved building the chess engine first and then later implementing the decision making functionality. I used Java and a library called [LibGDX](https://libgdx.com) to do this, which is built on top of [LWJGL](https://www.lwjgl.org). I had written a comprehensive writeup for this project back in high school with design, analysis, testing sections and so on. It's quite a long read (100 pages), but I figured it could be a good reference. Here is the PDF, source code and UML diagram for good measure!
+This was one of my larger projects, which involved building the chess engine first and then later implementing the decision-making functionality. I used Java and a library called [LibGDX](https://libgdx.com) to do this, which is built on top of [LWJGL](https://www.lwjgl.org). I had written a comprehensive writeup for this project back in high school with design, analysis, testing sections and so on. It's quite a long read (100 pages), but I figured it could be a good reference. Here is the PDF, source code and UML diagram for good measure!
 
 - [Building a Chess AI](/assets/chess-ai/project.pdf)
 - [Source Code](https://github.com/dyluc/chessai)
@@ -52,7 +52,7 @@ representing the favourability of a node (game state) for the maximizing player.
 Alpha-beta pruning is an optimization on the Minimax algorithm to reduce the number of nodes evaluated in the search tree. It does this by no longer searching further down the tree when an evaluation is found that is worse than one that already exists. This allows for much faster computation and a higher depth search. It introduces two new values to be passed into the minimax function; alpha and beta. Alpha will represent the best current value for the maximizer, and beta will represent the best current value for the minimizer.
 
 #### Pseudo Code
-Let's again take a look at some pseudo-code to see how branches of the search tree can be pruned using this technique.
+Let's again take a look at some pseudocode to see how branches of the search tree can be pruned using this technique.
 
 ```
 function MiniMaxWithAlphaBeta(depth, alpha, beta, maxi)
@@ -80,7 +80,7 @@ function MiniMaxWithAlphaBeta(depth, alpha, beta, maxi)
 		return min
 ```
 
-With these few additions, we can see how the number of nodes evaluated will be reduced. By breaking out of the loop, we are leaving the algorithm to only consider nodes with the potential of containing better evaluations than already found. This is where the improvement in computation comes from. You can see the testing section of my write up to see comparisons of using Minimax with and without alpha-beta pruning and improvements in execution time at different search depths.
+With these few additions, we can see how the number of nodes evaluated will be reduced. By breaking out of the loop, we are leaving the algorithm to only consider nodes with the potential of containing better evaluations than already found. This is where the improvement in computation comes from. You can see the testing section of my write-up to see comparisons of using Minimax with and without alpha-beta pruning and improvements in execution time at different search depths.
 
 ### The Evaluation Function
 

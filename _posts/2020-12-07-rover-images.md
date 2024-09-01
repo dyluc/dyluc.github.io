@@ -7,7 +7,7 @@ author:
 - Dylan Walsh
 ---
 
-Today's post will cover one of [NASA's Open APIs](https://api.nasa.gov) used to retrieve Mars rover images. I'd recommend checking this list out. You can find all sorts of APIs there, from accessing NASA's Exoplanet Archive Database to getting photos from Earth's Polychromatic Imaging Camera(pretty epic I know). If ever you find yourself wondering what the weather is like on Mars, well, there is an API for that too.
+Today's post will cover one of [NASA's Open APIs](https://api.nasa.gov) used to retrieve Mars rover images. I'd recommend checking this list out. You can find all sorts of APIs there, from accessing NASA's Exoplanet Archive Database to getting photos from Earth's Polychromatic Imaging Camera (pretty EPIC I know). If ever you find yourself wondering what the weather is like on Mars, well, there is an API for that too.
 
 Before getting started, you'll need an API key. You can get one at the link above, just scroll down to the Generate API Key section to sign up.
 
@@ -51,7 +51,7 @@ try{
 }
 ```
 
-Next, creating the HttpClient involves setting the proxy selector, `getDefault()` gets the system default selector. Then we can set the client to accept no cookies and always follow any redirects the server may throw at us. In the send method, we pass the request object we just made, and a BodyHandler which will create the file if it doesn't already exist, or override it's contents if it does.
+Next, creating the HttpClient involves setting the proxy selector, `getDefault()` gets the system default selector. Then we can set the client to accept no cookies and always follow any redirects the server may throw at us. In the send method, we pass the request object we just made, and a BodyHandler which will create the file if it doesn't already exist, or override its contents if it does.
 
 ```java
 HttpClient client = HttpClient.newBuilder()
@@ -78,7 +78,7 @@ dependencies {
 }
 ```
 
-ParseJson.java is just a class with a few methods for retrieving multiple JSON values from nested objects and arrays at once. I won't go into detail about this, but you can find the full source for this project by clicking the Github icon at the top of the post.
+ParseJson.java is just a class with a few methods for retrieving multiple JSON values from nested objects and arrays at once. I won't go into detail about this, but you can find the full source for this project by clicking the GitHub icon at the top of the post.
 
 Let's now create a ParseJson object to get the photos array from the response JSON.
 
@@ -130,11 +130,11 @@ downloadFile(photoImageSrc, filePath.toString())
 
 The `downloadFile()` method will download the photo from the given URI into the file we created. It will create the necessary directories if they don't already exist.
 
-Well, that's more or less it. The HTTPClient that first arrived as part of Java 9 makes handling HTTP requests like this a whole lot easier than using HttpURLConnection.
+Well, that's more or less it. The HTTPClient that first arrived as part of Java 9 makes handling HTTP requests like this a lot easier than using HttpURLConnection.
 
 ### Find this project on Github
 
-You can check out the source code for this post at my Github, just click the link at the top of the page. Using the application plugin, build the Gradle project and navigate to the distributions folder, you'll find the application packaged as a TAR and ZIP in there.
+You can check out the source code for this post at my GitHub, just click the link at the top of the page. Using the application plugin, build the Gradle project and navigate to the distributions folder, you'll find the application packaged as a TAR and ZIP in there.
 
 ### Run it!
 You can run the application by passing the following arguments to `rovfetch`
@@ -156,5 +156,5 @@ rovfetch 19 curiosity .
 ![command](/assets/rover-images/command.png)
 
 ### Summary
-Thanks for reading. Again, you can find the project at my Github. Feel free to clone or fork the repository and see what you can change. Maybe you can adjust the query parameters to query by Earth date, or look into some of the mission manifests returned in the JSON. Do check out the other APIs NASA offers too, have fun!
+Thanks for reading. Again, you can find the project at my GitHub. Feel free to clone or fork the repository and see what you can change. Maybe you can adjust the query parameters to query by Earth date, or look into some of the mission manifests returned in the JSON. Do check out the other APIs NASA offers too, have fun!
 
