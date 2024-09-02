@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Transformer Architecture"
-repo: "https://github.com/dyluc"
+repo: "https://github.com/dyluc/transformers"
 comments: true
 author:
 - Dylan Walsh
