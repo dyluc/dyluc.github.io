@@ -224,6 +224,36 @@ model.compile(loss="sparse_categorical_crossentropy", optimizer="nadam", metrics
 model.fit((X_train, X_train_dec), Y_train, epochs=10, validation_data=((X_valid, X_valid_dec), Y_valid))
 ```
 
+Training will take a while, the following output shows the training and validation accuracy through 10 epochs:
+
+```
+Epoch 1/10
+3125/3125 [==============================] - 1441s 460ms/step - loss: 3.1739 - accuracy: 0.3855 - val_loss: 2.3927 - val_accuracy: 0.4910
+Epoch 2/10
+3125/3125 [==============================] - 1449s 464ms/step - loss: 2.1355 - accuracy: 0.5303 - val_loss: 1.8105 - val_accuracy: 0.5910
+Epoch 3/10
+3125/3125 [==============================] - 1665s 533ms/step - loss: 1.7773 - accuracy: 0.5911 - val_loss: 1.6065 - val_accuracy: 0.6292
+Epoch 4/10
+3125/3125 [==============================] - 1612s 516ms/step - loss: 1.6297 - accuracy: 0.6178 - val_loss: 1.5063 - val_accuracy: 0.6472
+Epoch 5/10
+3125/3125 [==============================] - 1471s 471ms/step - loss: 1.5442 - accuracy: 0.6331 - val_loss: 1.4597 - val_accuracy: 0.6533
+Epoch 6/10
+3125/3125 [==============================] - 1471s 471ms/step - loss: 1.4829 - accuracy: 0.6438 - val_loss: 1.3932 - val_accuracy: 0.6675
+Epoch 7/10
+3125/3125 [==============================] - 1481s 474ms/step - loss: 1.4398 - accuracy: 0.6516 - val_loss: 1.3667 - val_accuracy: 0.6728
+Epoch 8/10
+3125/3125 [==============================] - 1487s 476ms/step - loss: 1.4049 - accuracy: 0.6587 - val_loss: 1.3442 - val_accuracy: 0.6762
+Epoch 9/10
+3125/3125 [==============================] - 1403s 449ms/step - loss: 1.3772 - accuracy: 0.6628 - val_loss: 1.3176 - val_accuracy: 0.6820
+Epoch 10/10
+3125/3125 [==============================] - 825s 264ms/step - loss: 1.3522 - accuracy: 0.6674 - val_loss: 1.3312 - val_accuracy: 0.6787
+<keras.src.callbacks.History at 0x17a7d7280>
+```
+
+We can see the training and validation accuracy steadily increasing, which is great! It means the model is gradually building 
+an understanding of the complex dependencies in the input data and improving its generalization on new data it sees. There 
+doesn't look to be any obvious overfitting from the output loss, and both the accuracy and loss are trending upwards.
+
 ## Final Thoughts
 
 This architecture has drastically changed the approach to sequence processing tasks, thanks to its reliance on attention mechanisms. Its impact on various fields of AI has only continued to grow since its inception. I'm planning to write another post very soon on Vision Transformers (ViTs) for object detection, so keep an eye out for that!
