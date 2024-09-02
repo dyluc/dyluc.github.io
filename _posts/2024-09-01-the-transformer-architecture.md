@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The Transformer Architecture"
+repo: "https://github.com/dyluc"
 comments: true
 author:
 - Dylan Walsh
@@ -225,8 +226,8 @@ model.fit((X_train, X_train_dec), Y_train, epochs=10, validation_data=((X_valid,
 
 ## Final Thoughts
 
-This architecture has drastically changed the approach used for sequence processing tasks due to its reliance on attention 
-mechanisms. It's impact on various fields of AI has continued to grow throughout the years since its inception. I am 
-hoping to write another post very soon on Vision Transformers (ViTs) for object detection, so keep an eye out for that!
+This architecture has drastically changed the approach to sequence processing tasks, thanks to its reliance on attention mechanisms. Its impact on various fields of AI has only continued to grow since its inception. I'm planning to write another post very soon on Vision Transformers (ViTs) for object detection, so keep an eye out for that!
 
 Thanks for reading, and feel free to reach out with any questions or thoughts (links are in the footer). 😊
+
+Find the complete source code on GitHub!
