@@ -17,8 +17,8 @@ Anyway, the focus of this post will be a short breakdown of the essential compon
 
 ["Attention Is All You Need" by Vaswani et al., 2017](https://arxiv.org/abs/1706.03762)
 
-> [!TIP]
-> Note: There is a TensorFlow PluggableDevice to enable training on Mac GPUs called [tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin/). If you're using an Apple silicon chip like me, you can install this via `python3 -m pip install tensorflow-metal`.
+> **TIP**
+> There is a TensorFlow PluggableDevice to enable training on Mac GPUs called [tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin/). If you're using an Apple silicon chip like me, you can install this via `python3 -m pip install tensorflow-metal`.
 
 ## Architecture - Quick Overview
 
@@ -71,8 +71,8 @@ We can manage the attention masks used by the MultiHeadAttention layer by settin
 1. A padding mask, which will mask padding tokens in the input sequences for both the encoder and decoder.
 2. A causal mask, which will prevent the model from attending to future tokens.
 
-> [!NOTE]
-> Note that masking is only crucial within the attention layer. This ensures the attention mechanism only attends to relevant tokens. 
+> **NOTE**
+> Masking is only crucial within the attention layer and ensures the attention mechanism only attends to relevant tokens. 
 > The normalization and dense layers further up the stack do not require masks because their operations are uniform across all tokens. 
 > The `MultiHeadAttention` layer has built in support for padding and causal masking, but I think it's a helpful exercise to manage 
 > these yourself, to gain a deeper understanding of how the attention mechanism works.
