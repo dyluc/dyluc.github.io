@@ -22,7 +22,9 @@ Anyway, the focus of this post will be a short breakdown of the essential compon
 
 ## Architecture - Quick Overview
 
-![transformer-arch](/assets/transformer/transformer-2017.png)
+![transformer-arch](/assets/transformer/transformer-architecture.png)
+
+_Figure 1: Transformer Architecture, reproduced from "Attention is All You Need" by Vaswani et al., 2017._
 
 This diagram is pulled directly from the research paper. The architecture follows an encoder-decoder structure. Embeddings are created from the tokenized inputs for both the encoder and decoder, with positional encodings added to capture the order of tokens. These embeddings are then fed into their respective stacks. Finally, the output is passed through a dense layer with a softmax activation to produce a probability distribution. That's the architecture in a nutshell. In the following sections, I'll walk through each step in more detail.
 
