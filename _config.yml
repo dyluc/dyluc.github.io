@@ -12,5 +12,3 @@ minima:
   social_links:
     - { platform: github, user_url: "https://github.com/dyluc" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/dylan-lucas1510/" }
-exclude:
-  - binhex/
