@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>BinHex</title>
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<link type="text/css" rel="stylesheet" href="style.css" />
+
+	</head>
+	<body>
+
+		<div id="game-container">
+			<!-- canvas game -->
+            
+			<canvas id="game-canvas"></canvas>
+
+			<!-- binary squares on top of canvas -->
+			<div class="value-container">
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+				<div class="value" data-value="0"><img class="binImg" src="imgs/binZero.png"/></div>
+			</div>
+
+			<div class="squares-container">
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+				<div class="square"><img class="btnImg" src="imgs/buttonUp.png"/></div>
+			</div>
+
+			<canvas id="hexCanvas" class="hex-container" data-hex="00"></canvas>
+            <div id="log">
+                Press any button to start new game
+            </div>
+		</div>
+
+		<!-- link to main js file and assets file-->
+        <script type="text/javascript" src="assets.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+        
+	</body>
+</html>
