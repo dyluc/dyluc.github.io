@@ -48,18 +48,24 @@ order and relative positions of the tokens within the sequence.
 ```python
 class PositionalEncoding(tf.keras.layers.Layer):
     def __init__(self, max_length, embed_size, dtype=tf.float32, **kwargs):
-        super().__init__(dtype=dtype, **kwargs)
+        super(PositionalEncoding, self).__init__(dtype=dtype, **kwargs)
         
-        p, i = np.meshgrid(np.arange(max_length), 2 * np.arange(embed_size // 2))
-        pos_emb = np.empty((1, max_length, embed_size))
-        pos_emb[0, :, ::2] = np.sin(p / 10_000 ** (i / embed_size)).T
-        pos_emb[0, :, 1::2] = np.cos(p / 10_000 ** (i / embed_size)).T
-        self.pos_encodings = tf.constant(pos_emb.astype(self.dtype))
+        # create the positional indices and scaling factors
+        position_indices = np.arange(max_length)
+        scaling_factors = 2 * np.arange(embed_size // 2)
+        
+        # create the positional embedding matrix
+        pos_emb = np.zeros((1, max_length, embed_size))
+        pos_emb[0, :, 0::2] = np.sin(position_indices[:, None] / (10_000 ** (scaling_factors / embed_size)))
+        pos_emb[0, :, 1::2] = np.cos(position_indices[:, None] / (10_000 ** (scaling_factors / embed_size)))
+        
+        np_dtype = tf.as_dtype(dtype).as_numpy_dtype
+        self.pos_encodings = tf.constant(pos_emb.astype(np_dtype))
         self.supports_masking = True
 
     def call(self, inputs):
-        batch_max_length = tf.shape(inputs)[1]
-        return inputs + self.pos_encodings[:, :batch_max_length]
+        seq_len = tf.shape(inputs)[1]
+        return inputs + self.pos_encodings[:, :seq_len, :]
 
 pos_embed_layer = PositionalEncoding(max_length, embed_size)
 encoder_in = pos_embed_layer(encoder_embeddings)
