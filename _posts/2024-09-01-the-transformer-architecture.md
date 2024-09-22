@@ -264,7 +264,7 @@ doesn't look to be any obvious overfitting from the output loss, and both the ac
 
 ## Final Thoughts
 
-This architecture has drastically changed the approach to sequence processing tasks, thanks to its reliance on attention mechanisms. Its impact on various fields of AI has only continued to grow since its inception. I'm planning to write another post very soon on Vision Transformers (ViTs) for object detection, so keep an eye out for that!
+This architecture has drastically changed the approach to sequence processing tasks, thanks to its reliance on attention mechanisms. Its impact on various fields of AI has only continued to grow since its inception. I'm planning to write another post very soon on Vision Transformers (ViTs), so keep an eye out for that!
 
 Thanks for reading, and feel free to reach out with any questions or thoughts (links are in the footer). 😊
 
