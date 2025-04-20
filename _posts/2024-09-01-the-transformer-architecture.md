@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Transformer Architecture"
+title: "Implementing the Original Transformer Architecture in TensorFlow"
 repo: "https://github.com/dyluc/transformers"
 comments: true
 author:

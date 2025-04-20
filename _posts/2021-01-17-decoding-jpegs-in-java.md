@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Decoding JPEGs in Java"
+title: "How JPEG Decoding Works: A Java Implementation"
 repo: "https://github.com/dyluc/jpegdecoder"
 comments: true
 author:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rover Images"
+title: "Retrieving and Organising Mars Rover Images with NASA’s Open APIs"
 repo: "https://github.com/dyluc/roverimages"
 comments: false
 author:

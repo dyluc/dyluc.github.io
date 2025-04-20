@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chess AI Minimax"
+title: "Building a Chess AI with Minimax and Alpha-Beta Pruning"
 repo: "https://github.com/dyluc/chessai"
 comments: false
 author:
