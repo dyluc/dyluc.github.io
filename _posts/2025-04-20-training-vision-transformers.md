@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Building, Training, and Scaling Vision Transformers in TensorFlow"
+description: "A hands-on guide to implementing Vision Transformers using TensorFlow, starting with CIFAR-10 and scaling up to large datasets like iNaturalist17, including cloud training with SageMaker."
 repo: "https://github.com/dyluc/transformers"
 comments: true
 author:

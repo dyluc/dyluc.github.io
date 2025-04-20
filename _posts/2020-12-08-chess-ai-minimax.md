@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Building a Chess AI with Minimax and Alpha-Beta Pruning"
+description: "Learn how to implement a chess AI using the Minimax algorithm with Alpha-Beta pruning in Java, including evaluation functions and decision-making strategies."
 repo: "https://github.com/dyluc/chessai"
 comments: false
 author:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Retrieving and Organising Mars Rover Images with NASA’s Open APIs"
+description: "A tutorial on fetching and organising Mars rover images using NASA's Open APIs, with Java code for HTTP requests, JSON parsing, and file management."
 repo: "https://github.com/dyluc/roverimages"
 comments: false
 author:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Implementing the Original Transformer Architecture in TensorFlow"
+description: "An in-depth walkthrough of the original Transformer model, covering attention mechanisms, positional encoding, and encoder-decoder structures, with code examples in TensorFlow."
 repo: "https://github.com/dyluc/transformers"
 comments: true
 author:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Building a Baseline JPEG Decoder with Chroma Subsampling Support in Java"
+description: "Explore the internals of JPEG decoding by building a baseline decoder in Java, covering markers, Huffman encoding, DCT, and chroma subsampling."
 repo: "https://github.com/dyluc/jpegdecoder"
 comments: true
 author:
