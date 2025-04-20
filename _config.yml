@@ -1,4 +1,4 @@
-remote_theme: jekyll/minima
+remote_theme: jekyll/minima@fab0f3f
 plugins:
 - jekyll-remote-theme
 author:
