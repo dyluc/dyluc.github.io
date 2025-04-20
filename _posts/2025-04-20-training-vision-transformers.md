@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Vision Transformers"
+title: "Building, Training, and Scaling Vision Transformers in TensorFlow"
 repo: "https://github.com/dyluc/transformers"
 comments: true
 author:

@@ -27,14 +27,14 @@ layout: base
             </time>
             {%- endif -%}
             {%- if page.author -%}
-            • {% for author in page.author %}
+            {% for author in page.author %}
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            <span class="p-author h-card" itemprop="name">• {{ author }} • </span></span>
             {%- if forloop.last == false %}, {% endif -%}
             {% endfor %}
             {%- endif -%}
             {%- if page.repo -%}
-             • <span class="p-author h-card" itemprop="name"><a href="{{page.repo}}">Github Repo</a></span>
+            <span class="p-author h-card" itemprop="name"><a href="{{page.repo}}">Github Repo</a></span>
             {%- endif -%}</p>
     </header>
 
