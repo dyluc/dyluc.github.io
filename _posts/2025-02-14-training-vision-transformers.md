@@ -499,7 +499,7 @@ In addition to the architecture changes, the following training changes were mad
 
 ![learning-rate-decay](/assets/vit/learning-rate-decay.png)
 
-# Model Training on SaturnCloud and SageMaker
+# Model Training on SageMaker
 
 Training models locally is great for quick experimentation and keeping costs low, but cloud environments offer many key advantages when scaling to larger datasets. Personally, I don't have access to powerful GPUs locally, so using the cloud gives me easy access to GPU or TPU instances for faster, more efficient training. For many use cases, running a few training jobs incurs relatively low costs (at least cheaper than investing in similar hardware locally).
 
