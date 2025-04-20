@@ -222,7 +222,7 @@ We can construct the Vision Transformer using these layers, where input sizes, p
 - As suggested in the paper, we can apply layer normalisation to the class token embedding prior to passing it through the classification head.
 - Tensorflow only determines the shapes when data is passed through the model `call` method. Therefore, we can rely on the explicit formula to know the value of `num_patches` for the `PositionalEmbedding` layer (see below). Alternatively, the Tensorflow layer `build` method can initialise the layer weights based on the input size, which is called the first time the layer processes data. Typical implementation for ViTs assumes square images, simplifying patch conversion and calculations for positional encoding (ensure input images are square if using this ViT).
 
-$$\\text{num\_patches} = \\left( \\frac{\\text{image\_height}}{\\text{patch\_size}} \\right) \\times \\left( \\frac{\\text{image\_width}}{\\text{patch\_size}} \\right) + 1$$
+$\\text{num\_patches} = \\left( \\frac{\\text{image\_height}}{\\text{patch\_size}} \\right) \\times \\left( \\frac{\\text{image\_width}}{\\text{patch\_size}} \\right) + 1$
 
 ```python
 class ViT(tf.keras.Model):
