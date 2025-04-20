@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "How JPEG Decoding Works: A Java Implementation"
+title: "Building a Baseline JPEG Decoder with Chroma Subsampling Support in Java"
 repo: "https://github.com/dyluc/jpegdecoder"
 comments: true
 author:
 - Dylan Walsh
 ---
 
-JPEG; the most widely used compression method for digital images. Assuming you've been on the internet for more than 5 minutes, you have most definitely seen or heard of the .jpg file extension. Firstly, JPEG isn't a file format, it's a long and hefty specification of how to reduce image file sizes; a compression method. Part of the idea behind the lossy aspect of JPEG compression is based on our poor ability to distinguish slight differences in colour. Turns out, we can't see colour very well at all, so we can throw away some of that colour information in the image (more on this later). Perhaps the most significant part of the JPEG specification however, is the discrete cosine transform (DCT), which represents our image data as a sum of cosine functions of various frequencies. Yes this sounds scary and complicated but don't worry, by the end of this article, you'll understand how it works.
+JPEG; the most widely used compression method for digital images. Firstly, JPEG isn't a file format, it's a long and hefty specification of how to reduce image file sizes; a compression method. Part of the idea behind the lossy aspect of JPEG compression is based on our poor ability to distinguish slight differences in colour. Turns out, we can't see colour very well at all, so we can throw away some of that colour information in the image (more on this later). Perhaps the most significant part of the JPEG specification however, is the discrete cosine transform (DCT), which represents our image data as a sum of cosine functions of various frequencies. Yes this sounds scary and complicated but don't worry, by the end of this article, you'll understand how it works.
 
 Now, before we jump into anything, I would highly suggest giving these videos by ComputerPhile a watch. They give an overview of the steps involved in encoding JPEG images.
 
