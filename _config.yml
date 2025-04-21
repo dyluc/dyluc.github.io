@@ -1,6 +1,7 @@
 remote_theme: jekyll/minima@f1a2af4
 plugins:
 - jekyll-remote-theme
+- jekyll-sitemap
 author:
   name: Dylan Walsh
   email: dylanlucas1510@gmail.com
