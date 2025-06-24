@@ -12,7 +12,7 @@ Hey! It's been quite a while since my last post. Between then and now, I've also
 
 The Transformer architecture relies exclusively on these attention mechanisms (albeit through a more generalised approach), and as such, doesn't suffer so much from the usual drawbacks associated with RNNs in many NLP tasks: vanishing/exploding gradients, longer training times, difficulty parallelising across many GPUs, and most importantly, limited ability to capture long-term patterns in input sequences.
 
-Since its introduction, the Transformer has gone on to revolutionise many active fields of AI research, including computer vision (the Vision Transformer—ViT—is comparable in performance to CNNs for tasks such as image classification and object detection).
+Since its introduction, the Transformer has gone on to impact many active fields of AI research, including computer vision. Vision Transformers (ViTs) are comparable in performance to CNNs for tasks such as image classification and object detection (_Edit: I've written a whole post on this very topic you can [check out here](https://dyluc.github.io/2025/04/20/training-vision-transformers.html)_).
 
 Anyway, the focus of this post will be a short breakdown of the essential components of this original 2017 architecture. If you haven't already, I'd definitely recommend giving the paper a read first:
 
@@ -265,7 +265,7 @@ doesn't look to be any obvious overfitting from the output loss, and both the ac
 
 ## Final Thoughts
 
-This architecture has drastically changed the approach to sequence processing tasks, thanks to its reliance on attention mechanisms. Its impact on various fields of AI has only continued to grow since its inception. I'm planning to write another post very soon on Vision Transformers (ViTs), so keep an eye out for that!
+This architecture has drastically changed the approach to sequence processing tasks, thanks to its reliance on attention mechanisms. Its impact on various fields of AI has only continued to grow since its inception.
 
 Thanks for reading, and feel free to reach out with any questions or thoughts (links are in the footer). 😊
 
