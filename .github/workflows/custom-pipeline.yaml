@@ -9,5 +9,5 @@ jobs:
     steps:
       - name: Simple GET 
         run: |
-          curl -G https://api.indexnow.org/indexnow?url=https://dyluc.github.io/&key=73f94957-7684-4cbd-98cc-0a97d3522954 \
+          curl --fail-with-body https://api.indexnow.org/indexnow?url=https://dyluc.github.io/&key=73f94957-7684-4cbd-98cc-0a97d3522954 \
           && echo "✅"
