@@ -15,8 +15,8 @@ jobs:
           echo "HTTP status: $response"
 
           if [ "$response" -ne 200 ]; then
-            echo "API call failed with status $response"
+            echo "Failed with status $response"
             exit 1
           fi
 
-          echo "POST successful"
+          echo "✅"
