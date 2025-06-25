@@ -6,6 +6,7 @@ repo: "https://github.com/dyluc/chessai"
 comments: false
 author:
 - Dylan Walsh
+last_modified_at: 2025-06-25
 ---
 
 Today's post is all about the Minimax algorithm, and more specifically, using it to build a chess AI. This was an older project of mine, and having just created this blog, I thought it might be a good idea to go through how you might go about starting to design a chess AI to play against. 
