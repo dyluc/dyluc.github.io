@@ -10,14 +10,13 @@ author:
 
 Today's post is all about the Minimax algorithm, and more specifically, using it to build a chess AI. This was an older project of mine, and having just created this blog, I thought it might be a good idea to go through how you might go about starting to design a chess AI to play against. 
 
-This was one of my larger projects, which involved building the chess engine first and then later implementing the decision-making functionality. I used Java and a library called [LibGDX](https://libgdx.com) to do this, which is built on top of [LWJGL](https://www.lwjgl.org). I had written a comprehensive writeup for this project back in high school with design, analysis, testing sections and so on. It's quite a long read (100 pages), but I figured it could be a good reference. Here is the PDF, source code and UML diagram for good measure!
-
-- [Building a Chess AI](/assets/chess-ai/project.pdf)
-- [Source Code](https://github.com/dyluc/chessai)
+This was one of my larger projects, which involved building the chess engine first and then later implementing the decision-making functionality. I used Java and a library called [LibGDX](https://libgdx.com) to do this, which is built on top of [LWJGL](https://www.lwjgl.org).
 
 ![uml](/assets/chess-ai/uml.jpeg)
 
 For this post, however, I'll only be going through the algorithms I used to determine best moves. So, without further ado, let's learn about Minimax.
+
+Disclaimer: the code is not great, but I think I was around 15 when I created this project, and it was a learning experience. At the time, I think I was happy enough just to have created something that worked.
 
 ### The Minimax Algorithm
 The Minimax algorithm is a type of recursive, depth-first search algorithm you'll find used in decision-making and game theory. It's mostly used in two-player, turn-based games to calculate the best possible next move. It does this by constructing a game tree where each node represents a particular state of the board. A node's depth in this tree will represent how many steps ahead from the current board state it is. Each node(board state) can then be evaluated. Comparing the evaluations of the various board states allows the algorithm to choose the best possible move to make. Put a little more simply, the algorithm looks a few steps ahead in the game, at every possible scenario. One player will be assigned as the maximizer and the other player as the minimizer, each attempting to choose game states with the maximum or minimum evaluation respectively. The algorithm works with the assumption that a player will always make the most optimal move, and in turn account for the worst-case scenario.

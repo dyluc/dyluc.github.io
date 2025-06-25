@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /binhex/
+
+Sitemap: https://dyluc.github.io/sitemap.xml
