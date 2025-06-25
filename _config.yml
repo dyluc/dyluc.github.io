@@ -6,7 +6,12 @@ author:
   name: Dylan Walsh
   email: dylanlucas1510@gmail.com
 github_username: dyluc
-url: https://dyluc.github.io
+url: "https://dyluc.github.io"
+defaults:
+  - scope:
+      path: "binhex/**"
+    values:
+      sitemap: false
 title: dyluc.github.io
 description: Technical blog on ML, AI systems, and low-level programming.
 disqus:
