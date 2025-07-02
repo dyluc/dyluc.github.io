@@ -12,7 +12,7 @@ Hey! It's been quite a while since my last post. Between then and now, I've also
 
 The Transformer architecture relies exclusively on these attention mechanisms (albeit through a more generalised approach), and as such, doesn't suffer so much from the usual drawbacks associated with RNNs in many NLP tasks: vanishing/exploding gradients, longer training times, difficulty parallelising across many GPUs, and most importantly, limited ability to capture long-term patterns in input sequences.
 
-Since its introduction, the Transformer has gone on to impact many active fields of AI research, including computer vision. Vision Transformers (ViTs) are comparable in performance to CNNs for tasks such as image classification and object detection (_Edit: I've written a whole post on this very topic you can [check out here](https://dyluc.github.io/2025/04/20/training-vision-transformers.html)_).
+Since its introduction, the Transformer has gone on to impact many active fields of AI research, including computer vision. Vision Transformers (ViTs) are comparable in performance to CNNs for tasks such as image classification and object detection (_Edit: I've written a whole post on this very topic you can [check out here](https://dyluc.me/2025/04/20/training-vision-transformers.html)_).
 
 Anyway, the focus of this post will be a short breakdown of the essential components of this original 2017 architecture. If you haven't already, I'd definitely recommend giving the paper a read first:
 
