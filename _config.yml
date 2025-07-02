@@ -12,7 +12,7 @@ defaults:
       path: "binhex/**"
     values:
       sitemap: false
-title: dyluc.github.io
+title: dyluc.me
 description: Technical blog on ML, AI systems, and low-level programming.
 disqus:
   shortname: dyluc-github-io
