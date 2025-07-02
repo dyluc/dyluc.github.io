@@ -6,7 +6,7 @@ author:
   name: Dylan Walsh
   email: dylanlucas1510@gmail.com
 github_username: dyluc
-url: "https://dyluc.github.io"
+url: "https://dyluc.me"
 defaults:
   - scope:
       path: "binhex/**"
