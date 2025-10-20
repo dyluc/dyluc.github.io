@@ -1,26 +1,28 @@
-remote_theme: jekyll/minima@f1a2af4
+remote_theme: riggraz/no-style-please
 plugins:
-- jekyll-remote-theme
-- jekyll-sitemap
-author:
-  name: Dylan Walsh
-  email: dylanlucas1510@gmail.com
-github_username: dyluc
+  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+title: dyluc.me
+author: Dylan Walsh
+email: dylanlucas1510@gmail.com
 url: "https://dyluc.me"
+description: Technical blog on ML, AI systems, and low-level programming.
+
+theme_config:
+  appearance: "auto"
+  back_home_text: ".."
+  date_format: "%Y-%m-%d"
+  show_description: true
+
+# disqus config (need custom integration)
+disqus:
+  shortname: dyluc-github-io
+
 defaults:
   - scope:
       path: "binhex/**"
     values:
       sitemap: false
-title: dyluc.me
-description: Technical blog on ML, AI systems, and low-level programming.
-disqus:
-  shortname: dyluc-github-io
-minima:
-  social_links:
-    - title: Github
-      icon: github
-      url: "https://github.com/dyluc"
-    - title: LinkedIn
-      icon: linkedin
-      url: "https://www.linkedin.com/in/dylan-lucas1510/"

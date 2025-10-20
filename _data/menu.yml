@@ -1,0 +1,13 @@
+entries:
+  - title: home
+    url: /
+  
+  - title: all posts
+    post_list:
+      show_more: false
+  
+  - title: github
+    url: https://github.com/dyluc
+  
+  - title: linkedin
+    url: https://www.linkedin.com/in/dylan-lucas1510/
