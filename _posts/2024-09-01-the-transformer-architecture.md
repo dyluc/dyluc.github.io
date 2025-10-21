@@ -6,6 +6,7 @@ repo: "https://github.com/dyluc/transformers"
 comments: true
 author:
 - Dylan Walsh
+last_modified_at: 2025-10-21
 ---
 
 Hey! It's been quite a while since my last post. Between then and now, I've also migrated content from my old site to this new one and, in the process, dropped a few old posts. I figured I'd break the long hiatus by writing about a groundbreaking research paper that introduced the Transformer architecture, which relies solely on attention mechanisms. These attention mechanisms (first introduced in an earlier paper in the context of sequence to sequence models) aimed to solve a significant limitation of RNNs at the time: short-term memory. Architectures like LSTMs or GRUs can typically handle only shorter sequences because representations of their inputs may be carried over many steps before they're actually used. Attention mechanisms, however, align the decoder at each time step with the parts of the input sequence that are most relevant.
@@ -267,6 +268,6 @@ doesn't look to be any obvious overfitting from the output loss, and both the ac
 
 This architecture has drastically changed the approach to sequence processing tasks, thanks to its reliance on attention mechanisms. Its impact on various fields of AI has only continued to grow since its inception.
 
-Thanks for reading, and feel free to reach out with any questions or thoughts (links are in the footer). 😊
+Thanks for reading, and feel free to reach out with any questions or thoughts.
 
 Find the complete source code on GitHub!

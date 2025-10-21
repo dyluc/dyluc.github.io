@@ -6,6 +6,7 @@ repo: "https://github.com/dyluc/transformers"
 comments: true
 author:
 - Dylan Walsh
+last_modified_at: 2025-10-21
 ---
 
 The introduction of the Transformer architecture marked a significant milestone in the field of Natural Language Processing (NLP). The architecture was adaptable enough to find applications across many other fields of AI research, including Computer Vision. Vision Transformers (ViTs) were one of the earlier widely successful applications of Transformers outside of NLP, and they quickly achieved state-of-the-art on various image recognition tasks. The ViT applies the mechanism of self-attention to image patches. The trick was to adapt the tokenisation approach and treat these image patches as the model's inputs. In fact, these image patches are passed through linear projections to obtain embeddings and enriched with positional encodings in a very similar way. These embeddings capture both feature and spatial information. ViTs are generally more data-hungry than traditional CNNs, as they have no inherent architectural inductive bias (such as locality or translation invariance). This means they typically require much more data to learn effective feature representations and, as such, thrive when pre-trained on large datasets.
@@ -577,6 +578,4 @@ tf_estimator.fit({
 
 # Conclusion
 
-Thanks for reading; the entire source code for this project can be found [here](https://github.com/dyluc/transformers/tree/inat17-pretraining). Feel free to reach out if you have any questions; my links are in the page footer.
-
-👋
+Thanks for reading; the entire source code for this project can be found [here](https://github.com/dyluc/transformers/tree/inat17-pretraining). Feel free to reach out if you have any questions!
