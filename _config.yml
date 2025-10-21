@@ -9,17 +9,17 @@ title: dyluc.me
 author: Dylan Walsh
 email: dylanlucas1510@gmail.com
 url: "https://dyluc.me"
-description: Technical blog on ML, AI systems, and low-level programming.
+description: Technical blog on (mostly) ML and low-level programming.
 
 theme_config:
-  appearance: "auto"
+  appearance: "dark"
   back_home_text: ".."
   date_format: "%Y-%m-%d"
   show_description: true
 
 # disqus config (need custom integration)
-disqus:
-  shortname: dyluc-github-io
+# disqus:
+  # shortname: dyluc-github-io
 
 defaults:
   - scope:
