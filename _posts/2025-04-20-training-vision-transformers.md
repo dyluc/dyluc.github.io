@@ -6,14 +6,16 @@ repo: "https://github.com/dyluc/transformers"
 comments: true
 author:
 - Dylan Walsh
-last_modified_at: 2025-10-21
+last_modified_at: 2025-10-26
 ---
 
-The introduction of the Transformer architecture marked a significant milestone in the field of Natural Language Processing (NLP). The architecture was adaptable enough to find applications across many other fields of AI research, including Computer Vision. Vision Transformers (ViTs) were one of the earlier widely successful applications of Transformers outside of NLP, and they quickly achieved state-of-the-art on various image recognition tasks. The ViT applies the mechanism of self-attention to image patches. The trick was to adapt the tokenisation approach and treat these image patches as the model's inputs. In fact, these image patches are passed through linear projections to obtain embeddings and enriched with positional encodings in a very similar way. These embeddings capture both feature and spatial information. ViTs are generally more data-hungry than traditional CNNs, as they have no inherent architectural inductive bias (such as locality or translation invariance). This means they typically require much more data to learn effective feature representations and, as such, thrive when pre-trained on large datasets.
+Hey! So recently I've been delving into adaptations of the Transformer architecture (which I've previously written about [here](https://dyluc.me/2024/09/01/the-transformer-architecture.html)). Its application in the field of Computer Vision spawned the Vision Transformer (ViT) architecture, which achieved state-of-the-art results on numerous image recognition tasks quite quickly. Nowadays, plenty of publicly accessible pre-trained ViTs exist (HuggingFace, for example, offers many such models). Still, today I wanted to explore actually building the architecture in TensorFlow and training it from scratch. This post isn't about achieving perfect validation accuracies or stellar performance, but rather about building the architecture layer by layer and demonstrating its ability to learn. But first, let's begin with more information on exactly how self-attention is applied to images (I recommend reading my previous post above as a prerequisite).
+
+The ViT applies the mechanism of self-attention to image patches. The trick was to adapt the tokenisation approach and treat these image patches as the model's inputs. In fact, these image patches are passed through linear projections to obtain embeddings and enriched with positional encodings in a very similar way. These embeddings capture both feature and spatial information. ViTs are generally more data-hungry than traditional CNNs, as they have no inherent architectural inductive bias (what this means is that they have fewer assumptions about the structure of data "baked in" to the architecture itself). As such, they typically require much more data to learn effective feature representations and so pre-training on larger datasets will help achieve better performance.
 
 Following a structure similar to [my previous post on Transformers](https://dyluc.me/2024/09/01/the-transformer-architecture.html), we'll run through the essential components of the Vision Transformer, describing their individual functions and explaining how to implement them as TensorFlow layers. 
 
-To put the model to use, we'll look at an image classification task using the publicly accessible [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html). This is a dataset of 60000 32x32 3-channel images across 10 classes. It's worth noting there is no imbalance across this dataset, so the ViT will have 6000 images of each class to work with.
+To put the model to use, we'll also look at an image classification task using the publicly accessible [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html). This is a dataset of 60000 32x32 3-channel images across 10 classes. It's worth noting there is no imbalance across this dataset, so the ViT will have 6000 images of each class to work with.
 
 The goal will be to make the architecture configurable and adapt it to different input image sizes, class counts, regularisation, patch, and layer configurations.
 
@@ -54,6 +56,8 @@ plt.show()
 ![cifar-10-cell-output](/assets/vit/cifar-10-images.png)
 
 _A sample of the first 5 images of the dataset._
+
+This is a perfect "toy" dataset for any CV-related tasks. It comes pre-processed out of the box from TensorFlow Datasets and allows you to start experimenting quickly. Working with much larger, messier image datasets tends to bring with it more data preparation challenges, especially when dealing with images with incompatible input sizes, significant class imbalance, varying image quality, the list goes on. But more on this later. First, let's examine the architecture.
 
 # Architecture
 
@@ -427,7 +431,7 @@ total_time = end_time - start_time
 print(f"Total training time for 30 epochs: {total_time:.2f} seconds ({total_time / 60:.2f} minutes)")
 ```
 
-Here, the model has trained to a modest ~63% validation accuracy in 30 epochs (roughly 4.5 minutes of training locally).
+Here, the model has trained to a modest ~63% validation accuracy in 30 epochs (roughly 4.5 minutes of training locally). Not terrible for a from scratch implementation on such a tiny dataset, but there's a noticeable gap between training and validation accuracy, of course that's overfitting. Still, here we're demonstrating actual learning capability which is cool! Overfitting is expected at this stage from a Transformer training on a dataset this small without pre-training.
 
 ```
 Epoch 1/30
@@ -468,12 +472,11 @@ Epoch 30: val_loss did not improve from 1.03000
 Total training time for 30 epochs: 263.43 seconds (4.39 minutes)
 ```
 
-Congratulations! You just built a Vision Transformer. Next, we'll examine the architecture adjustments that can help better equip this model for larger datasets. We'll also look at practical data preparation considerations for larger, imbalanced datasets.
+Congratulations! You just built a Vision Transformer, certainly not a very capable one, but encouraging enough to prove the architecture works. Next, we'll examine the architecture adjustments that can help better equip this model for larger datasets. We'll also look at practical data preparation considerations for larger, imbalanced datasets, which, as it turns out, involves quite a bit more work than loading CIFAR-10 from TFDS.
 
 # Handling Larger Image Datasets
 
-The [iNaturalist 2017](https://github.com/visipedia/inat_comp/tree/master/2017) dataset is a competition dataset with a total of 579,184 training images across 5089 classes (13 parent categories). The specifics of the data preparation can be found under [inat17-pretraining/dataset-utils](https://github.com/dyluc/transformers/tree/inat17-pretraining/dataset-utils), though in summary:
-
+The [iNaturalist 2017](https://github.com/visipedia/inat_comp/tree/master/2017) dataset is a competition dataset with a total of 579,184 training images across 5089 classes (13 parent categories). Moving from CIFAR-10's comfortable 32x32 images to this meant a huge jump in data preparation complexity. The specifics of the data preparation pipeline can be found under [inat17-pretraining/dataset-utils](https://github.com/dyluc/transformers/tree/inat17-pretraining/dataset-utils), though in summary:
 
 1. COCO-styled JSON annotation files are loaded and filtered, and category IDs are reassigned to make them sequential and subset-specific.
 2. Oversampling or undersampling is applied to balance the dataset and improve class balance for training (measures a normalised class distribution entropy against a desired threshold).
@@ -487,7 +490,7 @@ This pipeline ensures the dataset is formatted correctly, batched, and balanced 
 
 ## Architecture and Training Adjustments
 
-Pretraining a Vision Transformer from scratch requires much larger datasets. Some key adjustments (as highlighted in the paper) can be made to ensure heavier regularisation. This will help combat overfitting, ensuring the model performs just as well on the test sets or any other unseen data. The architecture has also moved from a notebook to a single Python script under [sagemaker/vision_transformer.py](https://github.com/dyluc/transformers/blob/inat17-pretraining/sagemaker/vision_transformer.py) (used when creating training jobs on SageMaker, more on this later). The architecture updates include:
+Scaling up to iNaturalist made it pretty clear that the architecture needed some adjustments. Some of these key adjustments (as highlighted in the paper) can be made to ensure heavier regularisation. This will help combat overfitting and constraining the model during training will (hopefully) help it to perform just as well on the test sets or any other unseen data. The architecture has also moved from a notebook to a single Python script under [sagemaker/vision_transformer.py](https://github.com/dyluc/transformers/blob/inat17-pretraining/sagemaker/vision_transformer.py) (used when creating training jobs on SageMaker, more on this later). The main updates include:
 
 1. **Weight Decay**: L2 weight decay is added as the kernel regulariser to all dense layers (in the embedding layer, encoder MLPs and the classification head).
 2. **Updated Activations**: GELU activation functions are used in the dense layers across the entire architecture (except, of course, within the final output layer of the classification head, which must use a softmax activation to produce class probabilities).
@@ -503,11 +506,9 @@ In addition to the architecture changes, the following training changes were mad
 
 # Model Training on SageMaker
 
-Training models locally is great for quick experimentation and keeping costs low, but cloud environments offer many key advantages when scaling to larger datasets. Personally, I don't have access to powerful GPUs locally, so using the cloud gives me easy access to GPU or TPU instances for faster, more efficient training. For many use cases, running a few training jobs incurs relatively low costs (at least cheaper than investing in similar hardware locally).
+Training models locally is great for quick experimentation and keeping costs low, but when you're dealing with datasets like iNaturalist, cloud environments and access to more powerful compute become pretty much essential. Personally, I don't have access to powerful GPUs locally, so AWS offers straightforward access to GPU and TPU instances without being too costly. For most use cases, running a few training jobs is surprisingly cheap, definitely more so than buying equivalent hardware.
 
-Cloud platforms also provide helpful tools for distributed training, experiment tracking, and deployment. I've primarily used AWS SageMaker to run jobs on GPU instances and track experiments, but Saturn Cloud is another helpful option, offering scalable resources for model training.
-
-Let's look at the basic setup required to get started with the SageMaker platform.
+I went with AWS SageMaker after trying a few options (Saturn Cloud being another helpful one). Distributed training, experiment tracking, and deployment are all pretty easy to navigate with SageMaker and the docs are very comprehensive too. Let's look at the basic setup.
 
 ## SageMaker Training Jobs
 
